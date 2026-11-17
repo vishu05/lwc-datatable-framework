@@ -1,0 +1,11 @@
+﻿<template>
+    <lightning-card title="Datatable Framework - Playground (fictional data)" icon-name="standard:datatable">
+        <div class="slds-p-around_medium">
+            <c-enhanced-datatable columns={columns} rows={rows} key-field="id"
+                page-size="10" show-search onrowselection={handleSelection}>
+            </c-enhanced-datatable>
+            <p class="slds-m-top_small">Selection: {lastSelection}</p>
+            <c-lookup-field object-api-name="Account" label="Account lookup demo"></c-lookup-field>
+        </div>
+    </lightning-card>
+</template>

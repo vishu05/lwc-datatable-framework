@@ -1,0 +1,22 @@
+﻿<template>
+    <div class="slds-m-bottom_small slds-grid slds-grid_align-spread">
+        <template if:true={showSearch}>
+            <lightning-input type="search" label="Search" variant="label-hidden"
+                placeholder="Search rows..." value={searchTerm} onchange={handleSearch}>
+            </lightning-input>
+        </template>
+        <span class="slds-text-body_small">{totalRecords} record(s)</span>
+    </div>
+    <template if:true={isEmpty}>
+        <p class="slds-text-align_center slds-p-vertical_medium">No records to display.</p>
+    </template>
+    <template if:false={isEmpty}>
+        <lightning-datatable key-field={keyField} data={visibleRows} columns={columns}
+            sorted-by={sortedBy} sorted-direction={sortDirection}
+            onsort={handleSort} onrowselection={handleRowSelection}>
+        </lightning-datatable>
+        <c-pagination-controls page={currentPage} total-pages={totalPages}
+            total-records={totalRecords} page-size={pageSize} onpagechange={handlePageChange}>
+        </c-pagination-controls>
+    </template>
+</template>

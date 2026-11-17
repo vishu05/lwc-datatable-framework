@@ -1,0 +1,8 @@
+﻿<template>
+    <lightning-input type="search" label={label} placeholder={placeholder}
+        onchange={handleSearch}></lightning-input>
+    <template if:true={options.length}>
+        <lightning-combobox label="Results" options={options} value={selectedId}
+            onchange={handleChange} class="slds-m-top_x-small"></lightning-combobox>
+    </template>
+</template>
